@@ -1,0 +1,26 @@
+name: Signup Test
+on:
+  workflow_dispatch:
+    inputs:
+      runs:
+        description: "Kitni baar chalana hai (max 5)"
+        default: "1"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python signup_test.py
+        env:
+          TEST_URL: ${{ secrets.TEST_URL }}
+          RUNS: ${{ github.event.inputs.runs }}
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: screenshots
+          path: "*.png"
