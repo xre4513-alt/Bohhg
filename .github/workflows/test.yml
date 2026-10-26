@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
     inputs:
       runs:
-        description: "Kitni baar chalana hai (max 5)"
-        default: "1"
+        description: "Kitni baar chalana hai (max 30)"
+        default: "20"
       debug:
         description: "Debug mode (1 = sirf page ke fields print karo)"
         default: "0"
