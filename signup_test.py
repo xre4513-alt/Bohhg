@@ -11,7 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 BASE_URL = os.environ.get("TEST_URL", "").strip()
-RUNS = max(1, min(int(os.environ.get("RUNS", "1") or "1"), 5))  # safety cap: max 5
+RUNS = max(1, min(int(os.environ.get("RUNS", "1") or "1"), 30))  # safety cap: max 30
 DEBUG = os.environ.get("DEBUG_MODE", "0") == "1"
 HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 SUCCESS_TEXT = os.environ.get("SUCCESS_TEXT", "").strip()  # optional: signup ke baad dikhne wala text
